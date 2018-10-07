@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>banner</title>
+
+	<style type="text/css">
+	#banner {
+		width: 1226px;
+		height: 460px;
+		margin: 0 auto; /*居中*/
+		position: relative;/*相对定位 给绝对定位元素位置参考*/
+	}
+
+	body{
+		margin: 0;
+		/*最好不使用通配符*/
+	}
+	
+	ul{
+		list-style-type: none;
+		margin: 0;
+		padding: 0; 
+	}
+	
+	#banner .item{
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		display: none;/*隐藏元素*/
+	}
+
+	.lr-tab .btn {
+		top: 200px;
+		width: 41px;
+		height: 69px;
+		background: url(images/icon-slides.png);
+		position: absolute;
+	}
+
+	.lr-tab .left{
+		left: 236px;
+		background-position-x: -83px;/*改变背景图片的位置*/
+	}
+
+	.lr-tab .right{
+		right: 0px;
+		background-position-x: -125px;
+	}
+
+	.lr-tab .left:hover{
+		background-position-x: 0px;
+	}
+
+	.lr-tab .right:hover{
+		background-position-x: -41px;
+	}
+
+	.tab-btn {
+		position: absolute;
+		right: 30px;
+		bottom: 20px;
+		width: 120px;
+		height: 30px;
+	}
+
+	.tab-btn .btn{
+		float: left;/*左浮动*/
+		width: 6px;
+		height: 6px;
+		background: #868686;
+		border: 2px solid #c3c3c3;
+		margin-left: 10px;
+		border-radius: 50%; /*边框圆角*/
+	}
+
+	.tab-btn .btn:hover{
+		background: #e4e4e4;
+		border-color: #7f7f7f;
+	}
+
+	.tab-btn .active {
+		background: #e4e4e4;
+		border-color: #7f7f7f;
+	}
+
+	</style>
+</head>
+
+<body>
+		<div id="banner">
+
+			<div class="img-wrap">
+				<ul>
+					<li class="item" style="display: block;">
+						<img src="images/1.jpg" width="1226" height="460" alt=""></li>
+					<li class="item">
+						<img src="images/2.jpg" width="1226" height="460" alt=""></li>
+					<li class="item">
+						<img src="images/3.jpg" width="1226" height="460" alt=""></li>
+					<li class="item">
+						<img src="images/4.jpg" width="1226" height="460" alt=""></li>
+					<li class="item">
+						<img src="images/5.jpg" width="1226" height="460" alt=""></li>
+				</ul>
+			</div> 
+
+			<div class="lr-tab">
+				<div class="left btn"></div>
+				<div class="right btn"></div>
+			</div>
+
+			<div class="tab-btn">
+				<ul>
+					<li class="btn"></li>
+					<li class="btn"></li>
+					<li class="btn"></li>
+					<li class="btn"></li>
+					<li class="btn"></li>
+				</ul>
+			</div>
+		</div>
+		
+		<script type="text/javascript" src="js/jquery.js"></script>
+
+		<script type="text/javascript">
+			var index = 0;
+			$ (".tab-btn .btn").click(function () {
+				index = $(this).index(); /*获取点击元素的下标*/
+
+				//小按钮颜色变化
+				$(this).addClass("active").siblings().removeClass("active");
+				$(" .item").eq(index).fadeIn().siblings().fadeOut();
+			});
+
+
+			//点击切换的效果
+			//右边
+			$(".lr-tab .right").click(function () {
+				index ++;
+				if (index >= 5) {
+					index = 0;
+				} 
+				//下标变大
+				$(" .item").eq(index).fadeIn().siblings().fadeOut();
+				$(" .tab-btn .btn").eq(index).addClass("active").siblings().removeClass("active");
+			});
+
+			//左边
+			$(".lr-tab .left").click(function () {
+				index --; //下标变小
+				if (index < 0) {
+					index = 4;
+				} 
+				$(" .item").eq(index).fadeIn().siblings().fadeOut();
+				$(" .tab-btn .btn").eq(index).addClass("active").siblings().removeClass("active");
+			});
+		</script>
+</body>
+</html>
+
+<!-- 盒子元素的样式 大小 位置 边框 背景
+
+文档流 默认规则 违背这个规则 >> 脱离文档流 使用自己的位置调整的规则 不影响还在文档流中的元素
+
+定位 绝对定位 absolute 相对 relative 固定 fixed 静态 static 
+(绝对 固定 完全脱离)
+浮动(并没有完全脱离)
+
+层级 越往后的元素层级越高
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
