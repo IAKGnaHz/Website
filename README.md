@@ -5,3 +5,5 @@
 [点击这里查看](http://iakgnahz.top/demo2/mi.html)
 ## 小米闪购商城页面
 [点击这里查看](http://iakgnahz.top/demo3/index.html)
+## 扫雷游戏 建议在chrome浏览器中打开
+[点击这里查看](http://iakgnahz.top/demo4/index.html)
