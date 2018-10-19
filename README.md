@@ -10,3 +10,5 @@
 ## 小米官网首页 
 [点击这里查看](http://iakgnahz.top/mi-index/index.html)
 ### 部署了HTML结构及实现基础样式
+## 少数派官网首页
+[点击这里查看](http://iakgnahz.top/sspai-index/index.html)
